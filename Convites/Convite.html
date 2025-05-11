@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convite — Concerto de Música</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg-dark: #0f0f23;
+      --bg-alt: #1a1a40;
+      --card-bg: rgba(24, 24, 49, 0.315);
+      --accent: #e94560;
+      --text: #fafafa;
+      --muted: rgba(250,250,250,0.7);
+      --btn-start: #e94560;
+      --btn-end: #903749;
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+     /*  font-family: 'Montserrat', sans-serif; */
+      background: var(--bg-dark) url('https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/472462833_122152030082333941_5462805600095399630_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGIqB_DQdCWE3do0qb5B89S-K7opvUVxzj4ruim9RXHOCBitr6CWMzcCONgC4T8FAknLoaiAKq2jQqU8l9LUPfg&_nc_ohc=skyXZwPfsZcQ7kNvwFIespC&_nc_oc=AdlTkm684qpEBvGeRxMH23hA00VGL5Q3abxGL2WkGKd1gHx0bdbEFYgRBw83Sm5HCew&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=r7Lmq4324nHukU6Dy4qEMA&oh=00_AfKRcw30PxCIxBHQbugxhjS-UmuaTystPMjtZEQm2Asy8w&oe=68242374');
+      color: var(--text);
+      background-size: contain;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 1rem;
+    }
+
+    .convite {
+      width: 100%; max-width: 980px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      -webkit-backdrop-filter: blur(1px);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .header {
+      position: relative;
+      background: linear-gradient(120deg, var(--bg-alt), transparent);
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+    }
+    .header::after {
+      content: '';
+      position: absolute; bottom: 0; left: 50%;
+      width: 60px; height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      transform: translateX(-50%);
+    }
+    .header img {
+      width: 70px;
+      margin-bottom: 1rem;
+      animation: micBounce 1.5s ease-in-out infinite;
+    }
+    @keyframes micBounce {
+      0%,100% { transform: translateY(0); }
+      50%    { transform: translateY(-8px); }
+    }
+    .header h1 {
+      font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .header .subtitle {
+      font-weight: 500; color: var(--muted);
+    }
+
+    .content {
+      padding: 1.5rem 1.5rem 2rem;
+    }
+    .content p {
+      line-height: 1.6; margin-bottom: 1.5rem;
+    }
+
+    .details {
+      background: rgba(0,0,0,0.3);
+      padding: 1rem; border-radius: 8px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem 1rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .details .label {
+      font-weight: 500; color: var(--muted);
+    }
+    .details .value {
+      font-weight: 700; text-align: right;
+    }
+
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    }
+    .map-container a {
+      display: block;
+    }
+
+    .btn-group {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-group a {
+      flex: 1 1 calc(33.33% - 0.5rem);
+      text-align: center; padding: 0.75rem;
+      background: linear-gradient(120deg, var(--btn-start), var(--btn-end));
+      color: var(--text); font-weight: 600;
+      border-radius: 8px; text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-group a:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+    @media(max-width: 479px) {
+      .btn-group a {
+        flex: 1 1 100%;
+      }
+    }
+    .contacts {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .contact-card {
+      display: flex; gap: 1rem;
+      background: rgba(70, 27, 27, 0.521);
+      padding: 1rem; border-radius: 10px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .contact-card:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    .contact-icon { font-size: 2rem; }
+    .contact-info h3 { margin-bottom: 0.25rem; }
+
+    .modal {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000; padding: 1rem;
+    }
+    .modal.hidden { display: none; }
+    .modal-content {
+      background: var(--card-bg);
+      padding: 2rem; border-radius: 12px;
+      text-align: center; width: 100%; max-width: 320px;
+    }
+    .modal-buttons {
+      margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .btn-option {
+      padding: 0.75rem; border-radius: 8px;
+      background: linear-gradient(120deg, var(--btn-start), var(--btn-end));
+      color: #fff; font-weight: bold; text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-option:hover { transform: translateY(-2px); }
+    .btn-option.cancel { background: #444; }
+
+  </style>
+</head>
+<body>
+
+  <div class="convite">
+
+    <div class="header">
+      <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-1/443695713_122095436180333941_857670894275189792_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e99d92&_nc_ohc=vuG9XsFGxn4Q7kNvwHr9VT-&_nc_oc=Adm27Mafg5nxYEtfmGy3Qr2Igs0NkQ_cVjD-01lZcIsg4S6BVY-MCKOIN-l9JGXCE_E&_nc_zt=24&_nc_ht=scontent-jnb2-1.xx&_nc_gid=YzJW_PjX4wpNh355OUdP_A&oh=00_AfLgKkUec_PNp9KpD1oC-yjN4parJNGYQtPbR1gV3yIRCA&oe=682418FA" alt="JNI-Albazine"/>
+      <h2>Aprenda A Crescer Onde Deus Te Plantou!</h2>
+      <h4>Atos-1.4a</h4>
+      <p class="subtitle">Uma experiência que vai tocar sua alma</p>
+    </div>
+
+
+    <div class="content">
+      <p>Venha viver uma tarde única, repleta de harmonia, emoção e talento. Um espetáculo ao vivo que vai envolver você do início ao fim — cada nota, cada voz, cada momento feito para emocionar.</p>
+
+ 
+      <div class="details">
+        <span class="label">Local</span><span class="value">Igreja do Nazareno de Albazine</span>
+        <span class="label">Data</span><span class="value">17 Maio 2025 (Sáb)</span>
+        <span class="label">Hora</span><span class="value">12:00</span>
+      </div>
+
+
+      <div class="map-container">
+        <link href="https://www.google.com/maps/place/Igreja+do+Nazareno+de+Albazine/@-25.8512737,32.6237492,17z" target="_blank">
+          <iframe
+            src="https://www.google.com/maps?q=-25.8512737,32.6237492&hl=pt-PT&z=17&output=embed"
+            width="100%" height="250" style="border:0;"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </link>
+      </div>
+
+    
+      <div class="btn-group">
+        <a href="#!" id="shareBtn">📤 Partilhar</a>
+      </div>
+
+
+      <div class="contacts">
+        <div class="contact-card" onclick="showOptions('866976900')">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <h3>secretária-1 Charmenia</h3>
+            <p>+258 86 697 6900</p>
+          </div>
+        </div>
+        <div class="contact-card" onclick="showOptions('876437521')">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <h3>secretária-2 Niza</h3>
+            <p>+258 87 643 7521</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Confirmar presença</h3>
+      <p id="phoneDisplay"></p>
+      <div class="modal-buttons">
+        <a id="whatsappLink" class="btn-option" target="_blank">✅ WhatsApp</a>
+        <a id="callLink" class="btn-option">📞 Chamada</a>
+        <button onclick="closeModal()" class="btn-option cancel">❌ Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  
+    document.getElementById('shareBtn').addEventListener('click', () => {
+      const data = {
+        title: 'Convite: Concerto de Música',
+        text: 'Concerto de Música na Igreja do Nazareno de Albazine em 17 Maio 2025 às 12:00',
+        url: window.location.href
+      };
+      if (navigator.share) navigator.share(data).catch(console.error);
+      else window.prompt('Copie o link:', window.location.href);
+    });
+
+    
+    function showOptions(fullNumber) {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('phoneDisplay').textContent = `Número: +258 ${fullNumber}`;
+      document.getElementById('whatsappLink').href = `https://wa.me/${fullNumber}`;
+      document.getElementById('callLink').href = `tel:+258${fullNumber}`;
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
