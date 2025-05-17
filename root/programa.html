@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programa - Juventude Albazine</title>
+  <style>
+    /* Variáveis de tema */
+    :root {
+      --bg-image: url('https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/472462833_122152030082333941_5462805600095399630_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGIqB_DQdCWE3do0qb5B89S-K7opvUVxzj4ruim9RXHOCBitr6CWMzcCONgC4T8FAknLoaiAKq2jQqU8l9LUPfg&_nc_ohc=skyXZwPfsZcQ7kNvwFIespC&_nc_oc=AdlTkm684qpEBvGeRxMH23hA00VGL5Q3abxGL2WkGKd1gHx0bdbEFYgRBw83Sm5HCew&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=r7Lmq4324nHukU6Dy4qEMA&oh=00_AfKRcw30PxCIxBHQbugxhjS-UmuaTystPMjtZEQm2Asy8w&oe=68242374');
+      --overlay: rgba(116, 116, 133, 0.5);
+      --card-bg: rgba(121, 185, 228, 0.4);
+      --accent: #d4af37;
+      --text-primary: #e2d846bd;
+      --text-secondary: #0c0b0b;
+    }
+
+    /* Reset e base */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-primary); }
+    body {
+      background: var(--bg-image) center/cover  no-repeat fixed;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 0;
+    }
+    .container { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 1rem; }
+
+    .section1{
+      margin-top: 15px;
+    }
+    /* Header moderno */
+    header {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+    }
+    header h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    header h2 {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+    header .meta, header .quote {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+    header .quote { font-style: italic; margin-top: 0.5rem; }
+
+    /* Principal cards */
+    main { margin-top: 2rem; }
+    section {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+    section h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Lista customizada */
+    ul { list-style: none; }
+    ul li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+    ul li::before {
+      content: '♪';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* Coro em grid responsivo */
+    .coro {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .voz strong {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer simples */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 480px) {
+      section { padding: 1.5rem 1rem; }
+      ul li { margin-bottom: 0.75rem; padding-left: 1.5rem; }
+      header h1 { font-size: clamp(1.5rem, 8vw, 2.5rem); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Programa de Concerto Musical</h1>
+      <h2>Igreja do Nazareno de Albazine</h2>
+      <p class="meta">Domingo, 03 de Dezembro de 2023</p>
+      <p class="quote">“E eis que estarei convosco todos os dias até à consumação dos séculos.”</p>
+    </header>
+
+    <main>
+      <section class="section1">
+        <h3>Parte I – Abertura</h3>
+        <ul>
+          <li>Entrada em Desfile</li>
+          <li>Oração de Abertura</li>
+          <li>Boas-vindas</li>
+          <li>Confirmação de Presenças</li>
+          <li>Hino de Abertura</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Parte II – Saudação</h3>
+        <ul>
+          <li>Hino pelos Pais</li>
+          <li>Hino pelos Activistas</li>
+          <li>Hino do Coro Celestial</li>
+          <li>Hino das Mocidades</li>
+          <li>Hino da Juventude</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Parte III – Ministração</h3>
+        <ul>
+          <li>Palavra de Deus</li>
+          <li>Recital Poético</li>
+          <li>Hino Temático</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Parte IV – Actividades</h3>
+        <ul>
+          <li>Solo Musical</li>
+          <li>Momento de Oração</li>
+          <li>Peça Dramática</li>
+          <li>Tafula Musical</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Parte V – Encerramento</h3>
+        <ul>
+          <li>Agradecimentos</li>
+          <li>Discursos Oficiais</li>
+          <li>Hino Final</li>
+          <li>Saída em Marcha</li>
+          <li>Recepção com Convívio</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Coro</h3>
+        <div class="coro">
+          <div class="voz">
+            <strong>Soprano</strong>
+            <ul>
+              <li>Artiselia Geraldo</li>
+              <li>Paula Muiocha</li>
+              <li>Adriana Guiamba</li>
+            </ul>
+          </div>
+          <div class="voz">
+            <strong>Alto</strong>
+            <ul>
+              <li>Niza Binasse</li>
+              <li>Erica Langa</li>
+              <li>Shirley Sergio</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Igreja Nazareno | Juventude Nazarena de Albazine</p>
+      <p>“Prove e veja que o Senhor é bom.” – Salmo 34:8</p>
+    </footer>
+  </div>
+</body>
+</html>
